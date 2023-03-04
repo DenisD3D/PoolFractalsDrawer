@@ -3,10 +3,11 @@ import pygame
 
 def render(drawing):
     pygame.init()
-    BLOCK_SIZE = 5  # Set the size of the grid block
     grid_size = (len(drawing[0]), len(drawing))
-    WINDOW_WIDTH = grid_size[0] * BLOCK_SIZE
-    WINDOW_HEIGHT = grid_size[1] * BLOCK_SIZE
+
+    BLOCK_SIZE = 700 // grid_size[1]
+    WINDOW_WIDTH = BLOCK_SIZE * grid_size[0]
+    WINDOW_HEIGHT = BLOCK_SIZE * grid_size[1]
 
     # Set up the drawing window
     screen = pygame.display.set_mode([WINDOW_WIDTH, WINDOW_HEIGHT])
@@ -22,7 +23,6 @@ def render(drawing):
 
         # Fill the background with white
         screen.fill((255, 255, 255))
-
 
         for x in range(0, grid_size[0]):  # WINDOW_WIDTH, BLOCK_SIZE):
             for y in range(0, grid_size[1]):  # WINDOW_HEIGHT, BLOCK_SIZE):
